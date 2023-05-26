@@ -1,2 +1,2 @@
 # Studentia
-Where knowledge meets diversity!
+The global community for students, by students.
