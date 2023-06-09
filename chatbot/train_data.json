@@ -1,0 +1,395 @@
+{
+    "context": "As Korea's first hospital exclusively for women, it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+    "qas": [
+        {
+            "id": 1,
+            "question": "What is the name of Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        }, 
+        {
+            "id": 2,
+            "question": "What is Ewha's hospital called?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "Why is Ewha's hospital historically important?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "What is the significance of Korea's first hospital exclusively for women?",
+            "answers": [
+                {
+                "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "Which university is associated with the first hospital exclusively for women in Korea?",
+            "answers": [
+                {
+                "text": "Ewha Womans University",
+                "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "question": "What is the current name of the medical center that originated from Korea's first hospital exclusively for women?",
+            "answers": [
+                {
+                "text": "Ewha Womans University Medical Center",
+                "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "question": "What are the colleges that were established as a result of the first hospital exclusively for women in Korea?",
+            "answers": [
+                {
+                "text": "Ewha's Colleges of Nursing and Medicine",
+                "answer_start": 76
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "question": "What is the historical significance of Ewha's hospital in Korea?",
+            "answers": [
+                {
+                "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "question": "Why is Ewha's hospital historically significant?",
+            "answers": [
+                {
+                "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "question": "What is the name of the hospital affiliated with Ewha Womans University?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+                    {
+            "id": 11,
+            "question": "Which institution was established based on Korea's first hospital exclusively for women?",
+            "answers": [
+                {
+                    "text": "Ewha's Colleges of Nursing and Medicine",
+                    "answer_start": 76
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "question": "What role did Ewha's hospital play in advancing women's healthcare in Korea?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "question": "What is the historical significance of Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "question": "What contributions did Ewha's hospital make to history?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "question": "Why is Ewha's hospital of historical importance?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "question": "What impact did Ewha's hospital have on history?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 17,
+            "question": "How did Ewha's hospital shape history?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 18,
+            "question": "What is the historical value of Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "question": "How does Ewha's hospital contribute to the historical narrative?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "question": "What role did Ewha's hospital play in shaping history?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 21,
+            "question": "What is the official designation of Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 22,
+            "question": "What is the designated name for Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 23,
+            "question": "What is the specific title of Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "question": "How is Ewha's hospital officially referred to?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 25,
+            "question": "By what name is Ewha's hospital known officially?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 26,
+            "question": "What is the specific designation given to Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "question": "What is the formal name used for Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "question": "How is Ewha's hospital officially designated?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 29,
+            "question": "What is the recognized title for Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 30,
+            "question": "What is the commonly used name for Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "question": "By what designation is Ewha's hospital commonly referred to?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "question": "Ewha's hospital name?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 33,
+            "question": "Ewha hospital name",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        },
+        {
+            "id": 34,
+            "question": "A cool fact about Ewha's hospital?",
+            "answers": [
+                {
+                    "text": "As Korea's first hospital exclusively for women, it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 0
+                }
+            ]
+        },
+        {
+            "id": 35,
+            "question": "Ewha hospital importance?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "question": "Why is Ewha's Hospital important?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 37,
+            "question": "importance of Ewha's Hospital?",
+            "answers": [
+                {
+                    "text": "it laid the groundwork for Ewha's Colleges of Nursing and Medicine, which became the current Ewha Womans University Medical Center",
+                    "answer_start": 49
+                }
+            ]
+        },
+        {
+            "id": 38,
+            "question": "Which gender was Ewha's hospital exclusive for?",
+            "answers": [
+                {
+                    "text": "women",
+                    "answer_start": 42
+                }
+            ]
+        }, 
+        {
+            "id": 39,
+            "question": "What is Korea's first hospital exclusively for women?",
+            "answers": [
+                {
+                    "text": "Ewha Womans University Medical Center",
+                    "answer_start": 142
+                }
+            ]
+        }
+    ]
+}

@@ -11,6 +11,7 @@ class AssetsConstants {
   static const String homeIcon = '$svgsPath/home.svg';
   static const String leftArrowIcon = '$svgsPath/leftArrow.svg';
   static const String listIcon = '$svgsPath/list.svg';
+  static const String cameraIcon = '$svgsPath/cameraIcon.svg';
   static const String replyIcon = '$svgsPath/reply.svg';
   static const String rightArrowIcon = '$svgsPath/rightArrow.svg';
   static const String searchIcon = '$svgsPath/search.svg';
@@ -21,5 +22,7 @@ class AssetsConstants {
   static const String listActive = '$svgsPath/listActive.svg';
   static const String bellActive = '$svgsPath/bellActive.svg';
   static const String chatbotActive = '$svgsPath/chatbotActive.svg';
+  static const String checkActive = '$svgsPath/checkActive.svg';
   static const String logoutIcon = '$svgsPath/logoutIcon.svg';
+  static const String logo = '$svgsPath/logo.svg';
 }

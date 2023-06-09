@@ -1,0 +1,95 @@
+{
+    "context": "Ewha campus moved to Sinchon in 1935. The new campus in Sinchon marked Ewha College's first step toward becoming a world-class university.",
+    "qas": [
+        {
+            "id": 1,
+            "question": "When did the Ewha campus move to Sinchon?",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        }, 
+        {
+            "id": 2,
+            "question": "Where did the Ewha campus move in 1935?",
+            "answers": [
+                {
+                    "text": "Sinchon",
+                    "answer_start": 21
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "question": "What did the new campus in Sinchon signify for Ewha College?",
+            "answers": [
+                {
+                    "text": "Ewha College's first step toward becoming a world-class university.",
+                    "answer_start": 71
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "question": "What year marked Ewha College's transition to the Sinchon campus?",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "question": "What was the significance of the move to Sinchon for Ewha College?",
+            "answers": [
+                {
+                    "text": "The new campus in Sinchon marked Ewha College's first step toward becoming a world-class university.",
+                    "answer_start": 37
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "question": "When did Ewha College make its transition to Sinchon?",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "question": "Ewha campus move to Sinchon date",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "question": "When did Ewha move to Sinchon?",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "question": "What is the date when Ewha moved to Sinchon?",
+            "answers": [
+                {
+                    "text": "1935",
+                    "answer_start": 31
+                }
+            ]
+        }
+    ]
+}
