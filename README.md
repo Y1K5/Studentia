@@ -1,4 +1,5 @@
-# **Studentia: The global community for students, by students.**
+# **Studentia**
+### **The global community for students, by students.**
 
 **Studentia 레포에 오신 것을 환영합니다!**
 
