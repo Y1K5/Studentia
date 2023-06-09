@@ -1,7 +1,6 @@
-# **Studentia:**
-### **The global community for students, by students.**
+# **Studentia: The global community for students, by students.**
 
-Studentia 레포에 오신 것을 환영합니다! 
+**Studentia 레포에 오신 것을 환영합니다!**
 
 Studentia는 이화여자대학교의 국제학생들에게 커뮤니티 형성과 서로에 대한 지원을 제공하기 위해 개발된 모바일 앱입니다. 이 앱은 다양한 기능과 서비스를 제공하여 해외 생활의 전반적인 경험을 향상시키기 위해 만들어졌습니다. 사용자 친화적인 인터페이스와 효과적인 커뮤니케이션에 초점을 맞추어, Studentia는 학교 생활의 스트레스를 완화하고 외로움을 극복하며 활발하고 참여도 높은 커뮤니티를 형성하기 위해 노력하고 있습니다.
 
