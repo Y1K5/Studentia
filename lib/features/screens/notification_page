@@ -1,0 +1,182 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
+class NotificationPage extends StatelessWidget {
+  Widget buildNotificationIcon(double size) {
+    return Container(
+      width: size,
+      height: size,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        gradient: LinearGradient(
+          colors: [
+            Colors.pink.withOpacity(1.0),
+            Colors.blue.withOpacity(1.0),
+            Colors.purple.withOpacity(1.0),
+          ],
+          stops: [0.0, 0.5, 1.0],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Container(
+        width: size - 8.0,
+        height: size - 8.0,
+        decoration: BoxDecoration(
+          shape: BoxShape.circle,
+          color: Colors.white,
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final double notificationSize = 24.0; // Adjustable size for the notification icon
+    final double notificationPadding = 4.0; // Adjustable padding for the notification
+    final double titleMarginLeft = 8.0; // Adjustable margin for the title
+    final double leadingMarginRight = 8.0; // Adjustable margin for the leading (user icon)
+
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        title: Row(
+          children: [
+            ShaderMask(
+              shaderCallback: (bounds) => LinearGradient(
+                colors: [Colors.pink, Colors.blue, Colors.purple],
+              ).createShader(bounds),
+              child: Text(
+                'Notifications',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ],
+        ),
+        actions: [
+          IconButton(
+            icon: SvgPicture.asset(
+              'assets/svgs/user.svg',
+              color: Colors.black,
+            ),
+            onPressed: () {
+              // Add your action here
+            },
+          ),
+        ],
+      ),
+      backgroundColor: Colors.white,
+      body: ListView.separated(
+        separatorBuilder: (context, index) => Divider(
+          color: Colors.grey[300],
+          height: 1.0,
+        ),
+        itemCount: 7, // Replace with the actual number of notifications
+        itemBuilder: (context, index) {
+          String title;
+          if (index == 0) {
+            title = 'Board: New Comment';
+          } else {
+            title = 'Notification ${index + 1}';
+          }
+
+          return Column(
+            children: [
+              ListTile(
+                contentPadding: EdgeInsets.all(notificationPadding),
+                leading: Container(
+                  margin: EdgeInsets.only(right: leadingMarginRight),
+                  child: buildNotificationIcon(notificationSize),
+                ),
+                title: Container(
+                  margin: EdgeInsets.only(left: titleMarginLeft),
+                  child: RichText(
+                    text: TextSpan(
+                      style: DefaultTextStyle.of(context).style.copyWith(fontSize: 16.0),
+                      children: [
+                        TextSpan(
+                          text: 'Board: ',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        TextSpan(
+                          text: 'New Comment',
+                          style: TextStyle(
+                            fontWeight: FontWeight.normal,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                subtitle: Text(
+                  'Hello, how are You?',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                  ),
+                ),
+              ),
+              Divider(
+                color: Colors.grey[300],
+                height: 1.0,
+              ),
+            ],
+          );
+        },
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.white,
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.grey,
+        showSelectedLabels: false, // Hide the labels
+        showUnselectedLabels: false, // Hide the labels
+        items: [
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/svgs/home.svg',
+              height: 25.0,
+              width: 25.0,
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/svgs/list.svg',
+              height: 25.0,
+              width: 25.0,
+            ),
+            label: 'List',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/svgs/bell.svg',
+              height: 25.0,
+              width: 25.0,
+            ),
+            label: 'Bell',
+          ),
+          BottomNavigationBarItem(
+            icon: SvgPicture.asset(
+              'assets/svgs/chatbot.svg',
+              height: 25.0,
+              width: 25.0,
+            ),
+            label: 'Message',
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(MaterialApp(
+    home: NotificationPage(),
+    debugShowCheckedModeBanner: false,
+  ));
+}
