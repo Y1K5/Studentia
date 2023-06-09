@@ -47,16 +47,15 @@ Studentia는 이화여자대학교 국제학생들이 정보 접근이 어렵고
 
 **추가 기능: Special Features!**
 
-  1.  Experience Studentia in Dark Mode!
-
-1. 개인의 선호에 따라 다크 모드를 선택하여 앱 사용을 개인화해보세요!
-2. 배경을 어두운 색상으로 변경하여 시력에 부담을 줄이세요.
-1. Sit back and stay anonymous!
-    1. 개인정보를 보호하면서도 자유롭게 의견을 표현하고 부담없이 커뮤니티에 참여해보세요!
-    2. 익명 기능을 활용하여 댓글 작성, 좋아요 표시 및 글 작성을 할 수 있어요.
-2. Enjoy exclusive access with your ewhain email!
-    1. 이화여자대학교 이메일로 가입한 사용자만 로그인할 수 있어요. 
-    2. 학생 인증을 수행하여 이화여대 학생들만의 커뮤니티를 만들어집니다!
+1. Experience Studentia in Dark Mode! 
+    - 개인의 선호에 따라 다크 모드를 선택하여 앱 사용을 개인화해보세요!
+    - 배경을 어두운 색상으로 변경하여 시력에 부담을 줄이세요.
+2. Sit back and stay anonymous!
+    - 개인정보를 보호하면서도 자유롭게 의견을 표현하고 부담없이 커뮤니티에 참여해보세요!
+    - 익명 기능을 활용하여 댓글 작성, 좋아요 표시 및 글 작성을 할 수 있어요.
+3. Enjoy exclusive access with your ewhain email!
+    - 이화여자대학교 이메일로 가입한 사용자만 로그인할 수 있어요. 
+    - 학생 인증을 수행하여 이화여대 학생들만의 커뮤니티를 만들어집니다!
 
 ## 핵심 기술
 
