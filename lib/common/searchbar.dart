@@ -4,8 +4,8 @@ import '../theme/palette.dart';
 import 'package:studentia/constants/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SearchBar extends StatelessWidget {
-  const SearchBar({super.key});
+class SearchBarWidget extends StatelessWidget {
+  const SearchBarWidget({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studentia/theme/app_theme.dart';
-import 'package:studentia/features/screens/home_page.dart';
+import 'package:studentia/features/screens/start_page.dart';
 import 'package:studentia/helpers/theme_manager.dart';
 
 void main() {
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             title: 'Studentia',
             theme: AppTheme.themeData(themeManager.darkMode, context),
-            home: const HomePage(),
+            home: const StartPage(),
           );
         },
       ),

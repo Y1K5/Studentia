@@ -15,7 +15,7 @@ class MainPage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-        const SearchBar(),
+        const SearchBarWidget(),
         SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         const MainChannels(['Notice', 'Everyone', 'Events', 'Promos']),
         SizedBox(height: MediaQuery.of(context).size.height * 0.02),
@@ -132,7 +132,14 @@ class YourChannels extends StatelessWidget {
       itemBuilder: (context, index) {
         final title = buttonTitles[index];
         return OutlinedButton(
-          onPressed: () {},
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ChannelPage(),
+              ),
+            );
+          },
           style: OutlinedButton.styleFrom(
             padding: buttonPadding,
             shape: buttonShape,

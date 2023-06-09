@@ -1,191 +1,180 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:studentia/theme/palette.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:studentia/constants/styles.dart';
+import 'package:studentia/constants/assets.dart';
+import 'package:studentia/helpers/gradient_button.dart';
+import './home_page.dart';
+import './signup_page.dart';
 
-void main() {
-  runApp(StudentiaApp());
-}
-
-class StudentiaApp extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Studentia',
-      theme: ThemeData(
-        scaffoldBackgroundColor: Colors.white,
-      ),
       home: Scaffold(
-        body: Column(
+        body: SafeArea(
+        child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 45.0, vertical: MediaQuery.of(context).size.height * 0.03),
+            child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            // App Name with Gradient
-            ShaderMask(
-              shaderCallback: (Rect bounds) {
-                return LinearGradient(
-                  colors: [
-                    Color(0xFFFF006E), // Pink
-                    Color(0xFF3A86FF), // Blue
-                    Color(0xFF8338EC), // Purple
-                  ],
-                ).createShader(bounds);
-              },
-              child: Text(
+            GradientText(
                 'Studentia',
-                style: TextStyle(
-                  fontSize: 40.0,
-                  fontFamily: 'Lato',
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: ReusableStyles.appGradientTitle.copyWith(fontSize: 26.0),
+                gradientType: GradientType.linear,
+                colors: ReusableStyles.gradientColors,
               ),
-            ),
-            SizedBox(height: 10.0),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.01),
             Text(
-              'The global community for students, by students',
+              'The global community for students, by students.',
               style: TextStyle(
-                fontSize: 14.0,
+                fontSize: 12.0,
                 fontFamily: 'Lato',
-                color: Colors.grey,
+                color: Colors.black,
+                fontStyle: FontStyle.italic,
               ),
             ),
-            SizedBox(height: 50.0),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.07),
             // Email TextField
-            Container(
-              width: 320.0,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  fillColor: Colors.grey[300],
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
+             TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Palette.searchBarInputAreaColor,
+                isDense: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(ReusableStyles.radius),
+                    borderSide: BorderSide.none),
+                contentPadding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.04,
+                    vertical: MediaQuery.of(context).size.height * 0.02),
+                suffixIcon: null,
+                hintText: 'Email',
               ),
+              style: ReusableStyles.channelPostsTextStyle,
             ),
-            SizedBox(height: 30.0),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.03),
             // Password TextField
-            Container(
-              width: 320.0,
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  fillColor: Colors.grey[300],
-                  filled: true,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20.0),
-                    borderSide: BorderSide.none,
-                  ),
-                ),
+            TextField(
+              decoration: InputDecoration(
+                filled: true,
+                fillColor: Palette.searchBarInputAreaColor,
+                isDense: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(ReusableStyles.radius),
+                    borderSide: BorderSide.none),
+                contentPadding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.04,
+                    vertical: MediaQuery.of(context).size.height * 0.02),
+                suffixIcon: null,
+                hintText: 'Password',
               ),
+              style: ReusableStyles.channelPostsTextStyle,
             ),
-            SizedBox(height: 10.0),
-            // Forgot Password Text
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(
                   'Forgot your password?',
                   style: TextStyle(
-                    fontSize: 14.0,
-                    color: Colors.grey,
+                    fontSize: 12.0,
+                    color: Colors.black,
+                    fontFamily: 'Lato'
                   ),
                 ),
-                SizedBox(width: 5.0),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.01),
                 // Click Here Text with Gradient
-                ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return LinearGradient(
-                      colors: [
-                        Color(0xFFFF006E), // Pink
-                        Color(0xFF3A86FF), // Blue
-                        Color(0xFF8338EC), // Purple
-                      ],
-                    ).createShader(bounds);
+                TextButton(
+                  onPressed: () {
+                    
                   },
-                  child: Text(
-                    'Click here',
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                    overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+                  ),
+                  child: GradientText(
+                    'Click here.',
+                    style: ReusableStyles.appGradientTitle.copyWith(fontSize: 12.0),
+                    gradientType: GradientType.linear,
+                    colors: ReusableStyles.gradientColors,
                   ),
                 ),
               ],
             ),
-            SizedBox(height: 50.0),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             // Login Button
-            SizedBox(
-              width: 120.0,
-              height: 45.0,
-              child: ElevatedButton(
-                onPressed: () {
-                  // Handle login button press
-                },
-                style: ElevatedButton.styleFrom(
-                  padding: EdgeInsets.all(0),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  primary: Colors.transparent,
-                  elevation: 0,
+            Container(
+              width: MediaQuery.of(context).size.width * 0.4,
+              height: MediaQuery.of(context).size.height * 0.05,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: ReusableStyles.gradientColors,
+                  begin: Alignment.centerLeft,
+                  end: Alignment.centerRight,
                 ),
-                child: Ink(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [
-                        Color(0xFFFF006E), // Pink
-                        Color(0xFF3A86FF), // Blue
-                        Color(0xFF8338EC), // Purple
-                      ],
+                borderRadius: BorderRadius.circular(ReusableStyles.radius),
+              ),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.transparent, 
+                  elevation: 0, 
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(ReusableStyles.radius)),
+                ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => HomePage(),
                     ),
-                    borderRadius: BorderRadius.circular(20.0),
-                  ),
-                  child: Container(
-                    alignment: Alignment.center,
-                    child: Text(
-                      'Login',
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                      ),
-                    ),
+                  );
+                },
+                child: Text(
+                  'Log in',
+                  style: TextStyle(
+                    color: Palette.lightBackgroundColor,
+                    fontSize: 17.0,
+                    fontFamily: 'Lato',
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
             ),
-            SizedBox(height: 70.0),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'You dont have an account?',
+                  "Don't have an account?",
                   style: TextStyle(
-                    fontSize: 14.0,
-                    color: Colors.grey,
+                    fontSize: 13.0,
+                    fontFamily: 'Lato',
+                    color: Colors.black,
                   ),
                 ),
-                SizedBox(width: 10.0),
+                SizedBox(width: MediaQuery.of(context).size.height * 0.0005),
                 // Sign Up Text with Gradient
-                ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return LinearGradient(
-                      colors: [
-                        Color(0xFFFF006E), // Pink
-                        Color(0xFF3A86FF), // Blue
-                        Color(0xFF8338EC), // Purple
-                      ],
-                    ).createShader(bounds);
+               TextButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => SignupPage(),
+                      ),
+                    );
                   },
-                  child: Text(
-                    'Sign Up',
-                    style: TextStyle(
-                      fontSize: 14.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
-                    ),
+                  style: ButtonStyle(
+                    foregroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                    overlayColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                    padding: MaterialStateProperty.all<EdgeInsetsGeometry>(EdgeInsets.zero),
+                  ),
+                  child: GradientText(
+                    'Sign up.',
+                    style: ReusableStyles.appGradientTitle.copyWith(fontSize: 13.0),
+                    gradientType: GradientType.linear,
+                    colors: ReusableStyles.gradientColors,
                   ),
                 ),
               ],
@@ -193,8 +182,13 @@ class StudentiaApp extends StatelessWidget {
           ],
         ),
       ),
+      ),
+      ),
     );
   }
 }
+
+
+
 
 

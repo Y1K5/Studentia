@@ -13,7 +13,7 @@ class ReusableStyles {
   ];
 
   static const TextStyle appGradientTitle = TextStyle(
-    fontSize: 19,
+    fontSize: 19.0,
     fontFamily: 'Lato',
     fontWeight: FontWeight.w900,
   );
@@ -36,7 +36,7 @@ class ReusableStyles {
     color: Palette.iconBlackColor,
     fontFamily: 'Lato',
     fontWeight: FontWeight.w400,
-    fontSize: 14,
+    fontSize: 13,
   );
 
   static const TextStyle deleteButton = TextStyle(
@@ -48,12 +48,11 @@ class ReusableStyles {
   static const TextStyle myPageButtons = TextStyle(
     color: Palette.iconBlackColor,
     fontFamily: 'Lato',
-    fontWeight: FontWeight.w700,
+    fontWeight: FontWeight.w600,
     fontSize: 14,
   );
 
-  static const TextStyle usernameText = TextStyle(
-    color: Palette.iconBlackColor,
+  static const TextStyle userTimeText = TextStyle(
     fontFamily: 'Lato',
     fontWeight: FontWeight.w700,
     fontSize: 12,

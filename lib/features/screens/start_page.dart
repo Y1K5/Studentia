@@ -1,147 +1,80 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:studentia/theme/palette.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
+import 'package:studentia/constants/styles.dart';
+import 'package:studentia/constants/assets.dart';
+import 'package:studentia/helpers/gradient_button.dart';
+import 'package:studentia/features/screens/login_page.dart';
+import 'package:studentia/features/screens/signup_page.dart';
 
-void main() {
-  runApp(const MainApp());
-}
-
-class MainApp extends StatelessWidget {
-  const MainApp({Key? key}) : super(key: key);
+class StartPage extends StatelessWidget {
+  const StartPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Colors.white,
+        //backgroundColor: Palette.lightBackgroundColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 90.0),
-              ShaderMask(
-                shaderCallback: (Rect bounds) {
-                  return LinearGradient(
-                    colors: <Color>[
-                      Color(0xFFFF006E), // Pink
-                      Color(0xFF3A86FF), // Blue
-                      Color(0xFF8338EC), // Purple
-                    ],
-                  ).createShader(bounds);
-                },
-                child: Text(
-                  'Studentia',
-                  style: TextStyle(
-                    fontSize: 45.0,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                    shadows: [
-                      Shadow(
-                        color: Colors.black.withOpacity(0.3),
-                        offset: Offset(0, 2),
-                        blurRadius: 4,
-                      ),
-                    ],
-                  ),
-                ),
+              SvgPicture.asset(AssetsConstants.logo, height: 90.0),
+              const SizedBox(height: 20.0),
+              GradientText(
+                'Studentia',
+                style: ReusableStyles.appGradientTitle.copyWith(fontSize: 30.0),
+                gradientType: GradientType.linear,
+                colors: ReusableStyles.gradientColors,
               ),
-              const SizedBox(height: 30.0),
-              ElevatedButton(
-  onPressed: () {
-    // Handle login button press
-  },
-  style: ElevatedButton.styleFrom(
-    padding: const EdgeInsets.all(0),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
-    ),
-    primary: Colors.white,
-    onSurface: Colors.transparent,
-  ),
-  child: Ink(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20.0),
-      gradient: LinearGradient(
-        colors: <Color>[
-          Color(0xFFFF006E), // Pink
-          Color(0xFF3A86FF), // Blue
-          Color(0xFF8338EC), // Purple
-        ],
-      ),
-    ),
-    child: Container(
-      width: 130.0,
-      height: 45.0,
-      alignment: Alignment.center,
-      child: Text(
-        'Log in',
-        style: TextStyle(
-          fontSize: 17.0,
-          fontWeight: FontWeight.bold,
-          foreground: Paint()
-            ..shader = LinearGradient(
-              colors: [
-                Colors.white,
-                Colors.white,
-                Colors.white,
-              ],
-            ).createShader(
-              Rect.fromLTWH(0.0, 0.0, 130.0, 45.0),
-            ),
-        ),
-      ),
-    ),
-  ),
-),
-const SizedBox(height: 13.0),
-ElevatedButton(
-  onPressed: () {
-    // Handle sign-up button press
-  },
-  style: ElevatedButton.styleFrom(
-    padding: const EdgeInsets.all(0),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(20.0),
-    ),
-    primary: Colors.white,
-    onSurface: Colors.transparent,
-  ),
-  child: Ink(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20.0),
-      gradient: LinearGradient(
-        colors: <Color>[
-          Color(0xFFFF006E), // Pink
-          Color(0xFF3A86FF), // Blue
-          Color(0xFF8338EC), // Purple
-        ],
-      ),
-    ),
-    child: Container(
-      width: 130.0,
-      height: 45.0,
-      alignment: Alignment.center,
-      child: Text(
-        'Sign up',
-        style: TextStyle(
-          fontSize: 17.0,
-          fontWeight: FontWeight.bold,
-          foreground: Paint()
-            ..shader = LinearGradient(
-              colors: [
-                Colors.white,
-                Colors.white,
-                Colors.white,
-              ],
-            ).createShader(
-              Rect.fromLTWH(0.0, 0.0, 130.0, 45.0),
-            ),
-        ),
-      ),
-    ),
-  ),
-),
-const SizedBox(height: 20.0),
-
-
+              const SizedBox(height: 60.0),
+              UnicornOutlineButton(
+                strokeWidth: 1,
+                radius: ReusableStyles.radius,
+                width: 0.5,
+                height: 0.05,
+                gradient: LinearGradient(colors: ReusableStyles.gradientColors),
+                child: 
+                  GradientText(
+                    'Log in',
+                    style: ReusableStyles.myPageButtons.copyWith(fontSize: 16.0, fontWeight: FontWeight.w900),
+                    gradientType: GradientType.linear,
+                    colors: ReusableStyles.gradientColors,
+                  ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => LoginPage(),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(height: 25.0),
+              UnicornOutlineButton(
+                strokeWidth: 1,
+                radius: ReusableStyles.radius,
+                width: 0.5,
+                height: 0.05,
+                gradient: LinearGradient(colors: ReusableStyles.gradientColors),
+                child: 
+                  GradientText(
+                    'Sign up',
+                    style: ReusableStyles.myPageButtons.copyWith(fontSize: 16.0, fontWeight: FontWeight.w900),
+                    gradientType: GradientType.linear,
+                    colors: ReusableStyles.gradientColors,
+                  ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => SignupPage(),
+                    ),
+                  );
+                },
+              ),
+              const SizedBox(height: 20.0),
             ],
           ),
         ),
@@ -149,6 +82,14 @@ const SizedBox(height: 20.0),
     );
   }
 }
+
+
+
+
+
+
+
+
 
 
 
