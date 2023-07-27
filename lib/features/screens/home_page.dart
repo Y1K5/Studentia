@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:studentia/constants/assets.dart';
 import 'package:studentia/common/toolbar.dart';
-import 'package:studentia/constants/styles.dart';
 import 'package:studentia/features/screens/my_page.dart';
 import 'package:studentia/features/screens/main_page.dart';
 import 'package:studentia/features/screens/list_page.dart';
@@ -28,6 +27,7 @@ class HomePageState extends State<HomePage> {
     NotifPage(),
     ChatbotPage()
   ];
+
   int _page = 0;
 
   void onPageChange(int index) {
@@ -56,7 +56,7 @@ class HomePageState extends State<HomePage> {
             colorFilter: ColorFilter.mode(
                 Theme.of(context).iconTheme.color ?? Palette.iconBlackColor,
                 BlendMode.srcIn),
-            height: 27.0),
+            height: MediaQuery.of(context).size.height * 0.033),
         showActionIcon: true,
         onActionTap: () {
           Navigator.push(
@@ -68,21 +68,9 @@ class HomePageState extends State<HomePage> {
         },
       ),
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: ReusableStyles.horizontalPadding),
-          child: Column(
-            children: [
-              Expanded(
-                child: SingleChildScrollView(
-                  child: IndexedStack(
-                    index: _page,
-                    children: navBarPages,
-                  ),
-                ),
-              ),
-            ],
-          ),
+        child: IndexedStack(
+          index: _page,
+          children: navBarPages,
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -90,31 +78,34 @@ class HomePageState extends State<HomePage> {
         showUnselectedLabels: false,
         items: [
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AssetsConstants.homeIcon, height: 30.0),
+            icon: SvgPicture.asset(AssetsConstants.homeIcon,
+                height: MediaQuery.of(context).size.height * 0.035),
             label: 'Home',
-            activeIcon:
-                SvgPicture.asset(AssetsConstants.homeActive, height: 30.0),
+            activeIcon: SvgPicture.asset(AssetsConstants.homeActive,
+                height: MediaQuery.of(context).size.height * 0.035),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AssetsConstants.listIcon, height: 28.0),
+            icon: SvgPicture.asset(AssetsConstants.listIcon,
+                height: MediaQuery.of(context).size.height * 0.032),
             label: 'List',
-            activeIcon:
-                SvgPicture.asset(AssetsConstants.listActive, height: 28.0),
+            activeIcon: SvgPicture.asset(AssetsConstants.listActive,
+                height: MediaQuery.of(context).size.height * 0.032),
           ),
           BottomNavigationBarItem(
-            icon: SvgPicture.asset(AssetsConstants.bellIcon, height: 28.0),
+            icon: SvgPicture.asset(AssetsConstants.bellIcon,
+                height: MediaQuery.of(context).size.height * 0.032),
             label: 'Notifications',
-            activeIcon:
-                SvgPicture.asset(AssetsConstants.bellActive, height: 28.0),
+            activeIcon: SvgPicture.asset(AssetsConstants.bellActive,
+                height: MediaQuery.of(context).size.height * 0.032),
           ),
           BottomNavigationBarItem(
-              icon: SvgPicture.asset(AssetsConstants.chatbotIcon, height: 30),
+              icon: SvgPicture.asset(AssetsConstants.chatbotIcon,
+                  height: MediaQuery.of(context).size.height * 0.035),
               label: 'Chatbot',
               activeIcon: SvgPicture.asset(AssetsConstants.chatbotActive,
-                  height: 30.0)),
+                  height: MediaQuery.of(context).size.height * 0.035)),
         ],
         type: BottomNavigationBarType.fixed,
-        //unselectedItemColor: Theme.of(context).iconTheme.color,
         currentIndex: _page,
         onTap: onPageChange,
       ),

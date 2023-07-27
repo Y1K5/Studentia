@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:studentia/theme/palette.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/constants/styles.dart';
 import 'package:studentia/constants/assets.dart';
@@ -13,68 +12,79 @@ class StartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
+    final theme = Theme.of(context);
+
     return MaterialApp(
       home: Scaffold(
-        //backgroundColor: Palette.lightBackgroundColor,
+        backgroundColor: theme.scaffoldBackgroundColor,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SvgPicture.asset(AssetsConstants.logo, height: 90.0),
-              const SizedBox(height: 20.0),
+              // Logo
+              SvgPicture.asset(AssetsConstants.logo4,
+                  height: screenHeight * 0.15),
+              SizedBox(height: screenHeight * 0.02),
+              // App Title
               GradientText(
                 'Studentia',
-                style: ReusableStyles.appGradientTitle.copyWith(fontSize: 30.0),
+                style: textTheme.headlineLarge,
                 gradientType: GradientType.linear,
                 colors: ReusableStyles.gradientColors,
               ),
-              const SizedBox(height: 60.0),
+              // Blank Space
+              SizedBox(height: screenHeight * 0.1),
+              // Log in Button
               UnicornOutlineButton(
                 strokeWidth: 1,
                 radius: ReusableStyles.radius,
-                width: 0.5,
-                height: 0.05,
-                gradient: LinearGradient(colors: ReusableStyles.gradientColors),
-                child: 
-                  GradientText(
-                    'Log in',
-                    style: ReusableStyles.myPageButtons.copyWith(fontSize: 16.0, fontWeight: FontWeight.w900),
-                    gradientType: GradientType.linear,
-                    colors: ReusableStyles.gradientColors,
-                  ),
+                width: screenWidth * 0.001,
+                height: screenHeight * 0.000065,
+                gradient:
+                    const LinearGradient(colors: ReusableStyles.gradientColors),
+                child: GradientText(
+                  'Log in',
+                  style: textTheme.labelMedium,
+                  gradientType: GradientType.linear,
+                  colors: ReusableStyles.gradientColors,
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => LoginPage(),
+                      builder: (context) => const LoginPage(),
                     ),
                   );
                 },
               ),
-              const SizedBox(height: 25.0),
+              // Blank Space
+              SizedBox(height: screenHeight * 0.03),
+              // Sign Up Button
               UnicornOutlineButton(
-                strokeWidth: 1,
+                strokeWidth: 1.0,
                 radius: ReusableStyles.radius,
-                width: 0.5,
-                height: 0.05,
-                gradient: LinearGradient(colors: ReusableStyles.gradientColors),
-                child: 
-                  GradientText(
-                    'Sign up',
-                    style: ReusableStyles.myPageButtons.copyWith(fontSize: 16.0, fontWeight: FontWeight.w900),
-                    gradientType: GradientType.linear,
-                    colors: ReusableStyles.gradientColors,
-                  ),
+                width: screenWidth * 0.001,
+                height: screenHeight * 0.000065,
+                gradient:
+                    const LinearGradient(colors: ReusableStyles.gradientColors),
+                child: GradientText(
+                  'Sign up',
+                  style: textTheme.labelMedium,
+                  gradientType: GradientType.linear,
+                  colors: ReusableStyles.gradientColors,
+                ),
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => SignupPage(),
+                      builder: (context) => const SignupPage(),
                     ),
                   );
                 },
               ),
-              const SizedBox(height: 20.0),
             ],
           ),
         ),
@@ -82,22 +92,3 @@ class StartPage extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

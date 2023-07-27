@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/common/searchbar.dart';
 import 'package:studentia/features/screens/channel_page.dart';
 import 'package:studentia/theme/palette.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/constants/styles.dart';
 
 class MainPage extends StatelessWidget {
@@ -10,36 +10,79 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-        const SearchBarWidget(),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-        const MainChannels(['Notice', 'Everyone', 'Events', 'Promos']),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-        const Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            'Your Channels',
-            textAlign: TextAlign.left,
-            style: ReusableStyles.titleTextStyle,
+    var buttonTitles = [
+      'Muslim Community',
+      'Hanwoori Dormitory',
+      'Language Exchange',
+      'Accommodation',
+      'Buy and Sell',
+      'CSE Channel',
+      'Arab Speakers',
+      'Muslim Community',
+      'Hanwoori Dormitory',
+      'Language Exchange',
+      'Accommodation',
+      'Buy and Sell',
+      'CSE Channel',
+      'Arab Speakers'
+    ];
+
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double commonSpacer = screenHeight * 0.02;
+    final textTheme = Theme.of(context).textTheme;
+
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(height: commonSpacer),
+                const SearchBarWidget(),
+                SizedBox(height: screenHeight * 0.01),
+                const Center(
+                  child: MainChannels(buttonTitles: [
+                    'News',
+                    'Everyone',
+                    'Discover',
+                    'Gigs',
+                  ]),
+                ),
+                SizedBox(height: commonSpacer),
+                _buildSectionHeader(context, textTheme, 'Your Channels'),
+                SizedBox(height: commonSpacer),
+              ],
+            ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-        const YourChannels(
-          [
-            'Muslim Community',
-            'Hanwoori Dormitory',
-            'Language Exchange',
-            'Accomodation',
-            'Buy and Sell',
-            'CSE Channel',
-            'Arab Speakers'
-          ],
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final title = buttonTitles[index];
+                return YourChannels(buttonTitle: title);
+              },
+              childCount: buttonTitles.length,
+            ),
+          ),
         ),
       ],
+    );
+  }
+
+  Widget _buildSectionHeader(BuildContext context, textTheme, String title) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        style: textTheme.labelMedium,
+      ),
     );
   }
 }
@@ -47,130 +90,130 @@ class MainPage extends StatelessWidget {
 class MainChannels extends StatelessWidget {
   final List<String> buttonTitles;
 
-  const MainChannels(this.buttonTitles, {Key? key}) : super(key: key);
+  const MainChannels({required this.buttonTitles, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
+
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       crossAxisAlignment: CrossAxisAlignment.center,
-      children: buttonTitles.map((title) {
-        return OutlinedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ChannelPage(),
-              ),
-            );
-          },
-          style: OutlinedButton.styleFrom(
-            padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.03),
-            shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            ),
-            side: const BorderSide(
-              width: 1.0,
-              color: Palette.borderGrayColor,
-            ),
-          ),
-          child: RichText(
-            text: TextSpan(
-              text: '# ',
-              style: const TextStyle(
-                color: Palette.pinkColor,
-                fontFamily: 'Lato',
-                fontSize: 13.0,
-              ),
-              children: [
-                TextSpan(
-                  text: title,
-                  style: const TextStyle(
-                    color: Palette.iconBlackColor,
-                    fontFamily: 'Lato',
-                  ),
+      children: [
+        for (var title in buttonTitles) ...[
+          OutlinedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const ChannelPage(),
                 ),
-              ],
+              );
+            },
+            style: OutlinedButton.styleFrom(
+              padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.03),
+              shape: const RoundedRectangleBorder(
+                borderRadius:
+                    BorderRadius.all(Radius.circular(ReusableStyles.radius)),
+              ),
+              side: BorderSide(
+                width: screenHeight * 0.0007,
+                color: Palette.borderGrayColor,
+              ),
+            ),
+            child: RichText(
+              text: TextSpan(
+                text: '# ',
+                style: TextStyle(
+                  color: Palette.pinkColor,
+                  fontFamily: 'Lato',
+                  fontSize: screenHeight * 0.016,
+                ),
+                children: [
+                  TextSpan(
+                    text: title,
+                    style: textTheme.bodyLarge,
+                  ),
+                ],
+              ),
             ),
           ),
-        );
-      }).toList(),
+        ],
+      ],
     );
   }
 }
 
 class YourChannels extends StatelessWidget {
-  final List<String> buttonTitles;
+  final String buttonTitle;
 
-  const YourChannels(this.buttonTitles, {Key? key}) : super(key: key);
+  const YourChannels({required this.buttonTitle, Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    EdgeInsetsGeometry buttonPadding = EdgeInsets.symmetric(
-        horizontal: MediaQuery.of(context).size.width * 0.05,
-        vertical: MediaQuery.of(context).size.width * 0.04);
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
+
+    final EdgeInsetsGeometry buttonPadding = EdgeInsets.symmetric(
+      horizontal: screenWidth * 0.05,
+      vertical: screenHeight * 0.015,
+    );
     const RoundedRectangleBorder buttonShape = RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(ReusableStyles.radius)),
     );
 
     Widget buildLabelText(String text) {
       return Align(
-          alignment: Alignment.centerLeft,
-          child: Text(
-            text,
-            style: ReusableStyles.channelPostsTextStyle,
-            overflow: TextOverflow.ellipsis,
-          ));
+        alignment: Alignment.centerLeft,
+        child: Text(
+          text,
+          style: textTheme.bodyMedium,
+          overflow: TextOverflow.ellipsis,
+        ),
+      );
     }
 
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: buttonTitles.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 10.0),
-      itemBuilder: (context, index) {
-        final title = buttonTitles[index];
-        return OutlinedButton(
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const ChannelPage(),
-              ),
-            );
-          },
-          style: OutlinedButton.styleFrom(
-            padding: buttonPadding,
-            shape: buttonShape,
-            side: const BorderSide(
-              width: 1.0,
-              color: Palette.borderGrayColor,
+    return Padding(
+      padding: EdgeInsets.only(bottom: screenHeight * 0.011),
+      child: OutlinedButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ChannelPage(),
             ),
+          );
+        },
+        style: OutlinedButton.styleFrom(
+          padding: buttonPadding,
+          shape: buttonShape,
+          side: BorderSide(
+            width: screenHeight * 0.0007,
+            color: Palette.borderLightGrayColor,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GradientText(
-                '# $title',
-                style: const TextStyle(
-                    fontSize: 14,
-                    fontFamily: 'Lato',
-                    fontWeight: FontWeight.w700),
-                gradientType: GradientType.linear,
-                colors: ReusableStyles.gradientColors,
-              ),
-              const SizedBox(height: 7.0),
-              buildLabelText(
-                  'Lorem ipsum dolor sit amet, consecuences at the peace'),
-              const SizedBox(height: 7.0),
-              buildLabelText(
-                  'Lorem ipsum dolor sit amet, consecuences at the house and tell them sorry'),
-            ],
-          ),
-        );
-      },
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            GradientText(
+              '# $buttonTitle',
+              style: textTheme.bodyLarge,
+              gradientType: GradientType.linear,
+              colors: ReusableStyles.gradientColors,
+            ),
+            SizedBox(height: screenHeight * 0.007),
+            buildLabelText(
+                'Lorem ipsum dolor sit amet, consecuences at the peace'),
+            SizedBox(height: screenHeight * 0.007),
+            buildLabelText(
+                'Lorem ipsum dolor sit amet, consecuences at the house and tell them sorry'),
+          ],
+        ),
+      ),
     );
   }
 }

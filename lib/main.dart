@@ -2,29 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:studentia/theme/app_theme.dart';
 import 'package:studentia/features/screens/start_page.dart';
-import 'package:studentia/helpers/theme_manager.dart';
+import 'helpers/theme_manager.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider<ThemeManager>(
-      create: (_) => ThemeManager(),
-      child: Builder(
-        builder: (BuildContext context) {
-          var themeManager = Provider.of<ThemeManager>(context);
+  Widget build(BuildContext context) => ChangeNotifierProvider(
+        create: (context) => ThemeManager(),
+        builder: (context, _) {
+          final themeManager = Provider.of<ThemeManager>(context);
+
           return MaterialApp(
             title: 'Studentia',
             theme: AppTheme.themeData(themeManager.darkMode, context),
             home: const StartPage(),
           );
         },
-      ),
-    );
-  }
+      );
 }

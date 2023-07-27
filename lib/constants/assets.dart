@@ -7,12 +7,15 @@ class AssetsConstants {
   static const String featherIcon = '$svgsPath/feather.svg';
   static const String folderIcon = '$svgsPath/folder.svg';
   static const String glassesIcon = '$svgsPath/glasses.svg';
+  static const String glassesActive = '$svgsPath/glassesActive.svg';
   static const String heartIcon = '$svgsPath/heart.svg';
+  static const String heartActive = '$svgsPath/heartActive.svg';
   static const String homeIcon = '$svgsPath/home.svg';
   static const String leftArrowIcon = '$svgsPath/leftArrow.svg';
   static const String listIcon = '$svgsPath/list.svg';
   static const String cameraIcon = '$svgsPath/cameraIcon.svg';
   static const String replyIcon = '$svgsPath/reply.svg';
+  static const String replyActive = '$svgsPath/replyActive.svg';
   static const String rightArrowIcon = '$svgsPath/rightArrow.svg';
   static const String searchIcon = '$svgsPath/search.svg';
   static const String sendIcon = '$svgsPath/send.svg';
@@ -25,4 +28,7 @@ class AssetsConstants {
   static const String checkActive = '$svgsPath/checkActive.svg';
   static const String logoutIcon = '$svgsPath/logoutIcon.svg';
   static const String logo = '$svgsPath/logo.svg';
+  static const String logo2 = '$svgsPath/logo2.svg';
+  static const String logo3 = '$svgsPath/logo3.svg';
+  static const String logo4 = '$svgsPath/logo4.svg';
 }
