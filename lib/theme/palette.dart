@@ -11,7 +11,8 @@ class Palette {
   static const Color darkBackgroundColor = Color.fromRGBO(16, 16, 16, 1);
 
   //Search Bar
-  static const Color searchBarInputAreaColor = Color.fromRGBO(226, 226, 226, 1);
+  static const Color searchBarInputAreaColor =
+      Color.fromRGBO(228, 228, 228, 0.494);
   static const Color darkSearchBarInputArea = Color.fromRGBO(29, 29, 29, 1);
 
   //Icons
@@ -19,7 +20,7 @@ class Palette {
   static const Color iconWhiteColor = Color.fromRGBO(255, 255, 255, 0.5);
 
   //Borders
-  static const Color borderLightGrayColor = Color.fromRGBO(189, 189, 189, 1);
+  static const Color borderLightGrayColor = Color.fromRGBO(199, 199, 199, 1);
   static const Color borderGrayColor = Color.fromRGBO(204, 204, 204, 1);
 
   //Delete Buttons

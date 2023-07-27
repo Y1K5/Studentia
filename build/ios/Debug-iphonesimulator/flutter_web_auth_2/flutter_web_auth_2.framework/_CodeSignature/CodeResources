@@ -42,7 +42,7 @@
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		SnThbSnVHV29Fhmo0r5UGD0dhvY=
+		zIBhXrehQpg9Jb6p3TGKIaOjoTo=
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		SnThbSnVHV29Fhmo0r5UGD0dhvY=
+		zIBhXrehQpg9Jb6p3TGKIaOjoTo=
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		k4enM7M3Ou+BC32Pjnl5iNUyrsM=
+		jwCOG3/5Ddmg7UGM7PEpgY3nEcY=
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		k4enM7M3Ou+BC32Pjnl5iNUyrsM=
+		jwCOG3/5Ddmg7UGM7PEpgY3nEcY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -135,7 +135,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XUrHfsgUVleG+IYxJKFiVoKrmnlWNiOuYVjQYPDn4Dk=
+			BdsKk/mmgu0EFJgy/jjYvdDjklaVqsSKI7QR1OqftSQ=
 			</data>
 		</dict>
 		<key>Modules/flutter_web_auth_2.swiftmodule/arm64.swiftdoc</key>
@@ -149,7 +149,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			XUrHfsgUVleG+IYxJKFiVoKrmnlWNiOuYVjQYPDn4Dk=
+			BdsKk/mmgu0EFJgy/jjYvdDjklaVqsSKI7QR1OqftSQ=
 			</data>
 		</dict>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -163,7 +163,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qBkJSpZ7WDZf/xhGghO60VaSi7NZ9UrPU7BJbvoQzSA=
+			nNcVz4p2dCK3ROxC0lv3GLodY5so4nThNuNy3J/QjmQ=
 			</data>
 		</dict>
 		<key>Modules/flutter_web_auth_2.swiftmodule/x86_64.swiftdoc</key>
@@ -177,7 +177,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			qBkJSpZ7WDZf/xhGghO60VaSi7NZ9UrPU7BJbvoQzSA=
+			nNcVz4p2dCK3ROxC0lv3GLodY5so4nThNuNy3J/QjmQ=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

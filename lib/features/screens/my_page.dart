@@ -7,6 +7,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:studentia/constants/styles.dart';
 import 'package:studentia/theme/palette.dart';
 import 'package:studentia/helpers/theme_manager.dart';
+import 'package:studentia/helpers/confirmation_dialog.dart';
 
 class MyPage extends StatefulWidget {
   const MyPage({super.key});
@@ -16,118 +17,145 @@ class MyPage extends StatefulWidget {
 }
 
 class MyPageState extends State<MyPage> {
+  bool _confirmationDialogVisible = false;
+
+  void _showConfirmationDialog(BuildContext context) {
+    setState(() {
+      _confirmationDialogVisible = true;
+      print(_confirmationDialogVisible);
+    });
+  }
+
+  void _hideConfirmationDialog(BuildContext context) {
+    setState(() {
+      _confirmationDialogVisible = false;
+      print(_confirmationDialogVisible);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final commonHSpacer = screenHeight * 0.01;
+    final theme = Theme.of(context);
+    final textTheme = Theme.of(context).textTheme;
     final themeManager = Provider.of<ThemeManager>(context);
-    return Scaffold(
-      extendBodyBehindAppBar: false,
-      appBar: ToolBar(
-        title: 'Profile',
-        leading: SvgPicture.asset(
-          AssetsConstants.leftArrowIcon,
-          colorFilter: const ColorFilter.mode(
-            Palette.iconBlackColor,
-            BlendMode.srcIn,
-          ),
-          height: 28.0,
-        ),
-        showLeading: true,
-        action: SvgPicture.asset(AssetsConstants.userActive, height: 27.0),
-        showActionIcon: true,
-        onActionTap: null,
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: EdgeInsets.fromLTRB(
-                ReusableStyles.horizontalPadding,
-                MediaQuery.of(context).size.height * 0.02,
-                ReusableStyles.horizontalPadding,
-                0.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    const Text('My Account',
-                        style: ReusableStyles.titleTextStyle),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.01),
-                    const Text(
-                      'Customize your experience.',
-                      style: ReusableStyles.subtitleTextStyle,
-                    ),
-                  ],
+
+    return Stack(
+      children: [
+        AbsorbPointer(
+          absorbing: _confirmationDialogVisible,
+          child: Scaffold(
+            extendBodyBehindAppBar: false,
+            appBar: ToolBar(
+              title: 'Profile',
+              leading: SvgPicture.asset(
+                AssetsConstants.leftArrowIcon,
+                colorFilter: ColorFilter.mode(
+                  theme.iconTheme.color ?? Palette.iconBlackColor,
+                  BlendMode.srcIn,
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                ProfileOptions(
-                  {
-                    'Change Username': () {
-                      // Perform the action for 'Change Username'
-                    },
-                    'Change Email': () {
-                      // Perform the action for 'Change Email'
-                    },
-                    'Change Password': () {
-                      // Perform the action for 'Change Password'
-                    },
-                    'Community Rules': () {
-                      // Perform the action for 'Community Rules'
-                    },
-                    'Privacy & Security': () {
-                      // Perform the action for 'Privacy & Security'
-                    },
-                  },
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-                const Text('Preferences', style: ReusableStyles.titleTextStyle),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                ProfileOptions(
-                  {
+                height: screenHeight * 0.032,
+              ),
+              showLeading: true,
+              action: SvgPicture.asset(AssetsConstants.userActive,
+                  height: screenHeight * 0.032),
+              showActionIcon: true,
+              onActionTap: null,
+            ),
+            body: Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: screenWidth * ReusableStyles.horizontalPadding,
+                vertical: screenHeight * 0.02,
+              ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('My Account', style: textTheme.labelMedium),
+                      SizedBox(height: screenHeight * 0.01),
+                      const Text(
+                        'Customize your experience.',
+                        style: ReusableStyles.subtitleTextStyle,
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: commonHSpacer),
+                  ProfileOptions({
+                    'Change Username': () {},
+                    'Change Email': () {},
+                    'Change Password': () {},
+                    'Community Rules': () {},
+                    'Privacy & Security': () {},
+                  }),
+                  SizedBox(height: commonHSpacer),
+                  Text('Preferences', style: textTheme.labelMedium),
+                  SizedBox(height: commonHSpacer),
+                  ProfileOptions({
                     'Toggle Mode': () {
                       themeManager.toggleTheme();
                     },
-                    'Saved': () {
-                      // Perform the action for 'Change Email'
-                    },
-                    'My Likes': () {
-                      // Perform the action for 'Change Password'
-                    },
-                    'My Posts': () {
-                      // Perform the action for 'Community Rules'
-                    }
-                  },
-                ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                Align(
-                  alignment: Alignment.center,
-                  child: OutlinedButton(
-                    onPressed: () {},
-                    style: OutlinedButton.styleFrom(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.07,
-                        vertical: MediaQuery.of(context).size.height * 0.015,
+                    'Saved': () {},
+                    'My Likes': () {},
+                    'My Posts': () {}
+                  }),
+                  SizedBox(height: commonHSpacer),
+                  Align(
+                    alignment: Alignment.center,
+                    child: OutlinedButton(
+                      onPressed: () {
+                        _showConfirmationDialog(context);
+                      },
+                      style: OutlinedButton.styleFrom(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth * 0.07,
+                          vertical: screenHeight * 0.015,
+                        ),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(
+                              Radius.circular(ReusableStyles.radius)),
+                        ),
+                        side: BorderSide(
+                          width: screenHeight * 0.0007,
+                          color: Palette.deleteRedColor,
+                        ),
                       ),
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(
-                            Radius.circular(ReusableStyles.radius)),
-                      ),
-                      side: const BorderSide(
-                        width: 1.0,
-                        color: Palette.deleteRedColor,
-                      ),
+                      child: const Text('Delete my account',
+                          style: ReusableStyles.deleteButton),
                     ),
-                    child: const Text('Delete my account',
-                        style: ReusableStyles.deleteButton),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
-      ),
+        if (_confirmationDialogVisible)
+          Positioned.fill(
+            child: GestureDetector(
+              onTap: () {
+                _hideConfirmationDialog(context);
+              },
+              child: Container(
+                color: Colors.grey.withOpacity(0.5),
+                child: Center(
+                  child: ConfirmationDialog(
+                    onYesPressed: () {
+                      _hideConfirmationDialog(context);
+                    },
+                    onNoPressed: () {
+                      _hideConfirmationDialog(context);
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ),
+      ],
     );
   }
 }
@@ -139,46 +167,51 @@ class ProfileOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: buttonActions.length,
-      separatorBuilder: (context, index) =>
-          SizedBox(height: MediaQuery.of(context).size.height * 0.005),
-      itemBuilder: (context, index) {
-        final title = buttonActions.keys.elementAt(index);
-        final action = buttonActions.values.elementAt(index);
-        return OutlinedButton(
-          onPressed: action,
-          style: OutlinedButton.styleFrom(
+    final theme = Theme.of(context);
+    final textTheme = Theme.of(context).textTheme;
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+
+    return Column(
+      children: [
+        for (var entry in buttonActions.entries)
+          Padding(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.04,
-                vertical: MediaQuery.of(context).size.height * 0.013),
-            shape: const RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.all(Radius.circular(ReusableStyles.radius)),
+              vertical: screenHeight * 0.002,
             ),
-            side: const BorderSide(
-              width: 0.7,
-              color: Palette.iconBlackColor,
-            ),
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(title, style: ReusableStyles.myPageButtons),
-              SvgPicture.asset(
-                AssetsConstants.rightArrowIcon,
-                colorFilter: const ColorFilter.mode(
-                  Palette.iconBlackColor,
-                  BlendMode.srcIn,
+            child: OutlinedButton(
+              onPressed: entry.value,
+              style: OutlinedButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: screenWidth * 0.04,
+                  vertical: screenHeight * 0.013,
                 ),
-                height: 20.0,
+                shape: const RoundedRectangleBorder(
+                  borderRadius:
+                      BorderRadius.all(Radius.circular(ReusableStyles.radius)),
+                ),
+                side: BorderSide(
+                  width: screenHeight * 0.0007,
+                  color: Palette.iconBlackColor,
+                ),
               ),
-            ],
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(entry.key, style: textTheme.bodyLarge),
+                  SvgPicture.asset(
+                    AssetsConstants.rightArrowIcon,
+                    colorFilter: ColorFilter.mode(
+                      theme.iconTheme.color ?? Palette.iconBlackColor,
+                      BlendMode.srcIn,
+                    ),
+                    height: screenHeight * 0.025,
+                  ),
+                ],
+              ),
+            ),
           ),
-        );
-      },
+      ],
     );
   }
 }

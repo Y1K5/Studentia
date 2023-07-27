@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/constants/styles.dart';
+import '../theme/palette.dart';
 
 class ToolBar extends StatelessWidget implements PreferredSizeWidget {
   const ToolBar({
@@ -25,7 +26,7 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
     return Container(
         decoration: const BoxDecoration(
           border: Border(
-            bottom: BorderSide(color: ReusableStyles.toolBarBorder, width: 0.3),
+            bottom: BorderSide(color: Palette.borderGrayColor, width: 0.2),
           ),
         ),
         child: SafeArea(
@@ -45,7 +46,7 @@ class ToolBar extends StatelessWidget implements PreferredSizeWidget {
                           child: leading!),
                     GradientText(
                       title,
-                      style: ReusableStyles.appGradientTitle,
+                      style: Theme.of(context).textTheme.titleLarge,
                       gradientType: GradientType.linear,
                       colors: ReusableStyles.gradientColors,
                     ),

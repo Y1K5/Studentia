@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:studentia/constants/assets.dart';
+import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/common/searchbar.dart';
 import 'package:studentia/constants/styles.dart';
 import 'package:studentia/theme/palette.dart';
-import 'package:simple_gradient_text/simple_gradient_text.dart';
 import 'package:studentia/features/screens/create_channel.dart';
 import 'package:studentia/helpers/gradient_button.dart';
 
@@ -13,87 +11,160 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-        const SearchBarWidget(),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-        UnicornOutlineButton(
-          strokeWidth: 1,
-          radius: ReusableStyles.radius,
-          width: 0.9,
-          height: 0.05,
-          gradient: LinearGradient(colors: ReusableStyles.gradientColors),
-          child: 
-            GradientText(
-              'Create Channel',
-              style: ReusableStyles.myPageButtons,
-              gradientType: GradientType.linear,
-              colors: ReusableStyles.gradientColors,
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final double commonSpacer = screenHeight * 0.02;
+    final textTheme = Theme.of(context).textTheme;
+
+    var mainChannels = {
+      'News': () {},
+      'Everyone': () {},
+      'Discover': () {},
+      'Gigs': () {},
+    };
+
+    var otherChannels = {
+      'Name of Board 1': () {},
+      'Name of Board 2': () {},
+      'Name of Board 3': () {},
+      'Name of Board 4': () {},
+      'Name of Board 5': () {},
+      'Name of Board 6': () {},
+    };
+
+    return CustomScrollView(
+      slivers: [
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(height: commonSpacer),
+                const SearchBarWidget(),
+                SizedBox(height: commonSpacer),
+                _buildCreateChannelButton(
+                    context, textTheme, screenHeight, screenWidth),
+                SizedBox(height: screenHeight * 0.03),
+                _buildSectionHeader(context, textTheme, 'General'),
+                SizedBox(height: commonSpacer),
+              ],
             ),
-          onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const CreateChannelPage(),
-              ),
-            );
-          },
+          ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-        ProfileOptions(
-          {
-            'Everyone': () {
-              
-            },
-            'Notice': () {
-              // Perform the action for 'Change Email'
-            },
-            'Events': () {
-              // Perform the action for 'Change Password'
-            },
-            'Promotions': () {
-              // Perform the action for 'Community Rules'
-            }
-          },
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final title = mainChannels.keys.elementAt(index);
+                final action = mainChannels.values.elementAt(index);
+                return ChannelBox(buttonTitle: title, buttonAction: action);
+              },
+              childCount: mainChannels.length,
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildListDelegate(
+              [
+                SizedBox(height: screenHeight * 0.03),
+                _buildSectionHeader(context, textTheme, 'Other'),
+                SizedBox(height: commonSpacer),
+              ],
+            ),
+          ),
+        ),
+        SliverPadding(
+          padding: EdgeInsets.symmetric(
+              horizontal: screenWidth * ReusableStyles.horizontalPadding),
+          sliver: SliverList(
+            delegate: SliverChildBuilderDelegate(
+              (context, index) {
+                final title = otherChannels.keys.elementAt(index);
+                final action = otherChannels.values.elementAt(index);
+                return ChannelBox(buttonTitle: title, buttonAction: action);
+              },
+              childCount: otherChannels.length,
+            ),
+          ),
         ),
       ],
     );
   }
+
+  Widget _buildCreateChannelButton(BuildContext context, textTheme,
+      double screenHeight, double screenWidth) {
+    return UnicornOutlineButton(
+      strokeWidth: 1,
+      radius: ReusableStyles.radius,
+      width: screenWidth * 0.009,
+      height: screenHeight * 0.000062,
+      gradient: const LinearGradient(colors: ReusableStyles.gradientColors),
+      child: GradientText(
+        'Create Channel',
+        style: textTheme.titleSmall,
+        gradientType: GradientType.linear,
+        colors: ReusableStyles.gradientColors,
+      ),
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const CreateChannelPage(),
+          ),
+        );
+      },
+    );
+  }
+
+  Widget _buildSectionHeader(BuildContext context, textTheme, String title) {
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Text(
+        title,
+        textAlign: TextAlign.left,
+        style: textTheme.labelMedium,
+      ),
+    );
+  }
 }
 
+class ChannelBox extends StatelessWidget {
+  final String buttonTitle;
+  final VoidCallback buttonAction;
 
-class ProfileOptions extends StatelessWidget {
-  final Map<String, VoidCallback> buttonActions;
-
-  const ProfileOptions(this.buttonActions, {Key? key}) : super(key: key);
+  const ChannelBox(
+      {required this.buttonTitle, required this.buttonAction, Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      shrinkWrap: true,
-      physics: const NeverScrollableScrollPhysics(),
-      itemCount: buttonActions.length,
-      separatorBuilder: (context, index) =>
-          SizedBox(height: MediaQuery.of(context).size.height * 0.005),
-      itemBuilder: (context, index) {
-        final title = buttonActions.keys.elementAt(index);
-        final action = buttonActions.values.elementAt(index);
-        return OutlinedButton(
-          onPressed: action,
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
+
+    return Column(
+      children: [
+        OutlinedButton(
+          onPressed: buttonAction,
           style: OutlinedButton.styleFrom(
             padding: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.04,
-                vertical: MediaQuery.of(context).size.height * 0.014),
-            shape: const RoundedRectangleBorder(
-              borderRadius:
-                  BorderRadius.all(Radius.circular(ReusableStyles.radius)),
+              horizontal: screenWidth * 0.04,
+              vertical: screenHeight * 0.015,
             ),
-            side: const BorderSide(
-              width: 0.7,
-              color: Palette.iconBlackColor,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(
+                Radius.circular(ReusableStyles.radius),
+              ),
+            ),
+            side: BorderSide(
+              width: screenHeight * 0.0007,
+              color: Palette.borderGrayColor,
             ),
           ),
           child: Row(
@@ -101,17 +172,18 @@ class ProfileOptions extends StatelessWidget {
             children: [
               GradientText(
                 '#',
-                style: ReusableStyles.myPageButtons.copyWith(fontWeight: FontWeight.w400, fontSize: 18.0),
+                style: textTheme.titleMedium,
                 gradientType: GradientType.linear,
                 colors: ReusableStyles.gradientColors,
               ),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-              Text(title, style: ReusableStyles.myPageButtons),
+              SizedBox(
+                width: screenWidth * 0.03,
+              ),
+              Text(buttonTitle, style: textTheme.bodyLarge),
             ],
           ),
-        );
-      },
+        ),
+      ],
     );
   }
 }
-

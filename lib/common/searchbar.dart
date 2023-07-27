@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:studentia/constants/styles.dart';
 import '../theme/palette.dart';
 import 'package:studentia/constants/assets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -14,7 +13,7 @@ class SearchBarWidget extends StatelessWidget {
       child: TextField(
           decoration: InputDecoration(
             filled: true,
-            //fillColor: Palette.searchBarInputAreaColor,
+            fillColor: Theme.of(context).inputDecorationTheme.fillColor,
             isDense: true,
             border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12.0),
@@ -27,7 +26,7 @@ class SearchBarWidget extends StatelessWidget {
                     Palette.iconBlackColor, BlendMode.srcIn),
                 fit: BoxFit.scaleDown),
           ),
-          style: ReusableStyles.channelPostsTextStyle),
+          style: Theme.of(context).textTheme.bodyMedium),
     );
   }
 }

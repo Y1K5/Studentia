@@ -105,7 +105,7 @@
     },
     {
       "name": "flutter",
-      "rootUri": "file:///Users/danielafajardo/Documents/GitHub/Studentia/flutter/packages/flutter",
+      "rootUri": "file:///Users/danielafajardo/Downloads/flutter/packages/flutter",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -123,7 +123,7 @@
     },
     {
       "name": "flutter_test",
-      "rootUri": "file:///Users/danielafajardo/Documents/GitHub/Studentia/flutter/packages/flutter_test",
+      "rootUri": "file:///Users/danielafajardo/Downloads/flutter/packages/flutter_test",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -141,7 +141,7 @@
     },
     {
       "name": "flutter_web_plugins",
-      "rootUri": "file:///Users/danielafajardo/Documents/GitHub/Studentia/flutter/packages/flutter_web_plugins",
+      "rootUri": "file:///Users/danielafajardo/Downloads/flutter/packages/flutter_web_plugins",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -297,7 +297,7 @@
     },
     {
       "name": "sky_engine",
-      "rootUri": "file:///Users/danielafajardo/Documents/GitHub/Studentia/flutter/bin/cache/pkg/sky_engine",
+      "rootUri": "file:///Users/danielafajardo/Downloads/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
       "languageVersion": "3.0"
     },
@@ -464,7 +464,7 @@
       "languageVersion": "2.19"
     }
   ],
-  "generated": "2023-06-09T12:18:33.911492Z",
+  "generated": "2023-07-19T20:22:05.849529Z",
   "generator": "pub",
-  "generatorVersion": "3.0.3"
+  "generatorVersion": "3.0.6"
 }
