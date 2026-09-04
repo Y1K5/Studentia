@@ -99,7 +99,7 @@ Studentia를 로컬 환경에 설치하고 실행하려면 다음 단계를 따�
 Studentia를 개선하고 유학생들에게 더 가치 있는 경험을 제공하기 위한 아이디어에 대한 기여를 환영합니다. 기여하실 분들은 아래 단계를 따라주시기 바랍니다:
 
 1. 개발자 중 한 분께 이메일을 보내주세요:
-    - Youngae Kim - youngae@ewhain.net
+    - Youngae Kim - youngae@ewha.ac.kr
     - Daniela Fajardo - danielabfajardo@gmail.com
     - Nafisa Otakhanova - koreangirlnext@gmail.com
 2. 이메일 제목은 'Studnetia 기여 아이디어'로 작성해주세요.
